@@ -24,7 +24,7 @@ COMO FUNCIONA?
 
             # servidor
             
-              Raspberry W Zero / Raspbian / Apache / MariaDB 
+              Raspberry W Zero / Raspbian / Apache / MQTT / MariaDB 
             
             # sensores autônomos
             C++
