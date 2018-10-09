@@ -3,6 +3,7 @@
 # O QUE É a comuREDE?
 
 UM NEGÓCIO DE IMPACTO SOCIAL OPEN SOURCE
+
 [Facebook](https://www.facebook.com/comuREDE/videos/897710280400227/)
 
 # COMO FUNCIONA?
