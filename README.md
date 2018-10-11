@@ -2,7 +2,8 @@
 
 # O QUE É a comuREDE?
 
-UM NEGÓCIO DE IMPACTO SOCIAL OPEN SOURCE - PARA DISTRIBUIR INTERNET GRATUITA E SERVIÇOS DE IoT NAS PERIFERIAS
+UM NEGÓCIO DE IMPACTO SOCIAL OPEN SOURCE
+    Para distribuir internet gratuita e serviços de IoT nas periferias
 
 [Facebook](https://www.facebook.com/comuREDE/videos/897710280400227/)
 
