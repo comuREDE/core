@@ -5,7 +5,7 @@
 UM NEGÓCIO DE IMPACTO SOCIAL OPEN SOURCE
    > Para distribuir internet gratuita e serviços de IoT nas periferias
 
-[Facebook](https://www.facebook.com/comuREDE/videos/897710280400227/)
+[VEJA AQUI](https://www.facebook.com/comuREDE/videos/897710280400227/)
 
 # COMO FUNCIONA?
     
@@ -44,4 +44,4 @@ MySQL
 
 ## redes mesh
 
-[Acesse aqui](https://commotionwireless.net/)
+[Conheça nossa base aqui](https://commotionwireless.net/)
