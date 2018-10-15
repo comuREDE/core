@@ -7,6 +7,15 @@ UM NEGÓCIO DE IMPACTO SOCIAL OPEN SOURCE
 
 [VEJA AQUI](https://www.facebook.com/comuREDE/videos/897710280400227/)
 
+
+                                                         # WHAT IS comuREDE?
+
+                                                         AN OPEN SOURCE SOCIAL IMPACT BUSINESS
+                                                             > To deliver free internet and IoT services in shanty towns
+
+                                                             [WATCH HERE](https://youtu.be/DjV8mJWbhzo)
+
+
 # COMO FUNCIONA?
     
 ## Do laboratório de informática para as ruas
