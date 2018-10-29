@@ -1,0 +1,147 @@
+/* cores */
+.exemplos{ color:#FF8760; color:#00A79E; color:#4E1D69; color:#2F0F40;
+}
+*,
+*::before,
+*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background: #2F0F40 url(images/bc_landscape-purple.jpg) no-repeat center fixed;
+  background-size: cover;
+}
+/* Settings -> start */
+h1,h2,h3,
+h4,h5,h6,
+p, button, input{
+  font-family: 'Proxima Nova', sans-serif;
+  text-align: center;
+}
+input:focus,
+button:focus{
+  outline: none;
+}
+.header,
+.container,
+.footer{
+  width: 100%;
+}
+/* Settings -> end */
+
+/* Default elements -> start */
+.btn__default{
+  padding:5px 15px;
+  border:none;
+  border-radius: 5px;
+  background: #FF8760;
+  color:#FFF;
+  font-weight: bold;
+  text-transform: lowercase;
+}
+/* Default elements -> end */
+
+/* Header -> start */
+.header{
+  margin-top: 4%;
+  margin-bottom: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header__logo{
+  width: 150px;
+  margin:20px;
+}
+/* Header -> end */
+
+/* Main -> start */
+.container{
+  width: 80%;
+  margin:0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container__title{
+  margin:10px 0;
+
+  font-weight: 700;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color:#FF8760;
+}
+.container__textTerms{
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.3rem;
+  color: #00A79E;
+}
+.container__labelTerms{
+  font-weight: 100;
+  line-height: 1.3rem;
+  color: #00A79E;
+}
+.container__checkboxTerms{
+  
+}
+.container__boxButtons{
+  margin:20px 0;
+}
+.boxButtons__btn{
+  min-width: 150px;
+  margin: 0 10px;
+}
+.container__formRegister{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-end;
+}
+.formRegister__title{
+  width: 100%;
+  font-weight: 400;
+  color: #00A79E;
+}
+.formRegister__item{
+  margin:10px;
+  color: #00A79E;
+  text-transform: lowercase;
+}
+.formRegister__itemInput,
+.formRegister__itemButton{
+  height: 20px;
+}
+.formRegister__itemInput{
+  padding: 0 3px;
+  display: block;
+  border:none;
+  border-radius: 5px;
+}
+.formRegister__itemButton{
+  margin:10px;
+  padding: 0 15px;
+}
+/* Main -> end */
+
+/* Footer -> start */
+.footer{
+  margin-top:20px;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+.footer__title,
+.footer__iconsSocial{
+  color: #00A79E;
+}
+.footer__title{
+  font-weight: normal;
+}
+.footer__iconsSocial{
+  margin:0 10px;
+  font-size: 30px;
+}
+/* Footer -> end */
