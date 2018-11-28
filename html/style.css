@@ -1,5 +1,9 @@
 /* cores */
-.exemplos{ color:#FF8760; color:#00A79E; color:#4E1D69; color:#2F0F40;
+.exemplos{ 
+  color:#FF8760; 
+  color:#00A79E; 
+  color:#4E1D69; 
+  color:#2F0F40;
 }
 *,
 *::before,
@@ -74,10 +78,16 @@ button:focus{
   color:#FF8760;
 }
 .container__textTerms{
-  font-weight: 400;
+  font-weight: 600;
   font-size: 1rem;
   line-height: 1.3rem;
   color: #00A79E;
+}
+
+@media(max-width:640px){
+  .container__textTerms{
+    text-align: justify;
+  }
 }
 .container__labelTerms{
   font-weight: 100;
@@ -94,6 +104,12 @@ button:focus{
   min-width: 150px;
   margin: 0 10px;
 }
+@media(max-width:640px){
+  .boxButtons__btn{
+    margin: 0 5px;
+    width: 30%;
+  }
+}
 .container__formRegister{
   display: flex;
   flex-flow: row wrap;
@@ -102,7 +118,8 @@ button:focus{
 }
 .formRegister__title{
   width: 100%;
-  font-weight: 400;
+  font-weight: 600;
+  font-size: 1.5rem;
   color: #00A79E;
 }
 .formRegister__item{
@@ -124,6 +141,26 @@ button:focus{
   margin:10px;
   padding: 0 15px;
 }
+@media(max-width:640px){
+  .container__formRegister{}
+  .formRegister__title{
+    font-size: 1.2rem;
+  }
+  .formRegister__item{
+    width: 90%;
+    margin:5px 10px;
+  }
+  .formRegister__itemInput,
+  .formRegister__itemButton{
+    height: 30px;
+  }
+  .formRegister__itemInput{
+    width: 100%;
+  }
+  .formRegister__itemButton{
+    width: 70%;
+  }
+}
 /* Main -> end */
 
 /* Footer -> start */
@@ -138,10 +175,23 @@ button:focus{
   color: #00A79E;
 }
 .footer__title{
-  font-weight: normal;
+  margin-right: 10px;
+  font-weight: 400;
+  font-size: 1.5rem;
 }
 .footer__iconsSocial{
-  margin:0 10px;
-  font-size: 30px;
+  margin:0 5px;
+  font-size: 2rem;
+}
+@media(max-width:640px){
+  .footer{
+    padding-bottom: 30px;
+  }
+  .footer__title{
+    font-size: 1rem;
+  }
+  .footer__iconsSocial{
+    font-size: 1.4rem;
+  }
 }
 /* Footer -> end */
