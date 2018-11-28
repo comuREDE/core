@@ -293,7 +293,7 @@ button:focus{
   .footer__iconsSocial{
     font-size: 1.4rem;
   }
-  .footer__logoService{
+  .footer__linkHome{
     width: 15%;
   }
 }
