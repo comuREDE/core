@@ -32,7 +32,8 @@ body{
 /* Settings -> start */
 h1,h2,h3,
 h4,h5,h6,
-p, button, input{
+p, button, input,
+a,label{
   font-family: 'Proxima Nova', sans-serif;
   text-align: center;
 }
@@ -113,15 +114,24 @@ button:focus{
   }
 }
 .container__labelTerms{
-  font-weight: 100;
+  width: 100%;
+  margin:5px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
   line-height: 1.3rem;
   color: #00A79E;
 }
 .container__checkboxTerms{
-  
+  margin-right: 5px;
 }
 .container__boxButtons{
+  width: 100%;
   margin:20px 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 .boxButtons__btn{
   min-width: 150px;
@@ -130,9 +140,12 @@ button:focus{
   text-decoration: none;
 }
 @media(max-width:576px){
+  .container__boxButtons{
+    justify-content: space-around
+  }
   .boxButtons__btn{
-    margin: 0 5px;
-    width: 30%;
+    margin: 0 2px;
+    min-width: 30%;
   }
 }
 .container__formRegister{
@@ -150,7 +163,9 @@ button:focus{
 .formRegister__item{
   margin:10px;
   color: #00A79E;
+  font-weight: 400;
   text-transform: lowercase;
+  text-align: left;
 }
 .formRegister__itemInput,
 .formRegister__itemButton{
@@ -262,8 +277,11 @@ button:focus{
   margin:0 5px;
   font-size: 2rem;
 }
-.footer__logoService{
+.footer__linkHome{
   width: 3%;
+}
+.footer__logoService{
+  width: 100%;
 }
 @media(max-width:576px){
   .footer{
@@ -275,7 +293,7 @@ button:focus{
   .footer__iconsSocial{
     font-size: 1.4rem;
   }
-  .footer__logoService{
+  .footer__linkHome{
     width: 15%;
   }
 }

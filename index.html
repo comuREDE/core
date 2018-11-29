@@ -1,69 +1,54 @@
-<html>
-
-	<head>
-		<title>comuREDE
-
-		</title>
-	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-	
-		</head>
-
-	<body bgcolor="808080">
-	
-	<table align='center' ;" border=1 ;>
-	
-	<tr align='center' bgcolor="YELLOW"'>
-				 <th  align='center'>  ATENÇÃO:</th>
-			 </tr>	 
-	<tr align='center'> <td bgcolor="C0C0C0">	Ao acessar a internet por este link, através de uma rede livre e aberta, suas informações
-	<b>NÃO SERÃO CRIPTOGRAFADAS </b> e podem ser interceptadas por usuários maliciosos.<br>
-	Logo, ao avançar na navegação, estará expressamente declarando que está ciente de tal risco 
-	e também poderá ser responsabilizado pelas autoridades locais, caso porceda com qualquer 
-	conduta ilícita ou ilegal. </td> </tr> 
-	</table>
-	
-	<script>
-function Valida()
-{
-	if (termos.aceitar.checked == true) 
-	{
-	  termos.enviar.disabled = false;
-	} 
-	else 
-	{
-	  termos.enviar.disabled = true;
-	}
-}
-
-	</script>
-	<p align='center'>
-	<img src="logo1.jpg"  align='center' height = "300px" width = "300px">
-    </p>
-	
-<center> <form action="pagina1.html" method="post" name="termos">
-<input type="checkbox" name="aceitar" value="checkbox" onclick="return Valida();">Li e concordo com os termos acima.
-<br>
-<br>
-<br>
- <a href="servicos.html">
- <input type="button" value="ACESSAR SERVIÇOS" style="width: 167.02; height: 22px" align="center"> 
- </a>
- <input type="submit" name="enviar" value="NAVEGAR NA INTERNET" align="center" disabled> </center>
-
-</form>
-
-<table align='center' ;" border=1 ; width='100%'>
-
-
-<tr align='center'  > <td bgcolor="C0C0C0" >    SAIBA MAIS e ajude a manter ou expandir a rede de serviços e acesso a internet em <br>
-<a HREF="http://www.facebook.com/comuREDE" TARGET="_blank"> facebook.com/comuREDE </a><b>CURTA E COMPARTILHE</b> Ela continuar depende de você :-).<br>
- </td> </tr> 
-     
-</table>
-	 
-	 
-	
-	
-	</body>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.4.1/css/all.css' integrity='sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz' crossorigin='anonymous'>
+    <link href="fonts/fonts.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>comuREDE</title>
+</head>
+<body>
+   <header class="header">
+       <img class="header__logo" src="images/logo-comuREDE_02.png" alt="Logo comuREDE">
+   </header> 
+   <main class="container">
+       <h2 class="container__title">Atenção</h2>
+       <p class="container__textTerms">
+           Ao acessar a internet por esse link, através de uma rede livre e aberta, suas informações NÃO SERÃO CRIPITOGRAFADAS e podem ser interceptadas por usuários maliciosos. Logo, ao avançar na navegação, estará expressamente declarando que está ciente de tal risco e também poderá ser responsablizado pelas autoridades locais, caso perceba com qualquer conduta ilícita ou ilegual.
+        </p>
+        <label for="acept" class="container__labelTerms">
+            <input type="checkbox" name="acept" class="container__checkboxTerms">
+            Li e concordo com os termos acima.
+        </label>
+        <div class="container__boxButtons">
+            <!-- <button class="boxButtons__btn btn__default">Acessar serviço</button> -->
+            <a href="services.html" class="boxButtons__btn btn__default">Acessar serviço</a>
+            <button class="boxButtons__btn btn__default">Navegar na Internet</button>
+        </div>
+        <form class="container__formRegister" action="">
+            <h2 class="formRegister__title">Cadastre-se e receba notificações e relatórios automaticamente</h2>
+            <label class="formRegister__item" for="name">
+                Nome
+                <input class="formRegister__itemInput" type="text" name="name">
+            </label>
+            <label class="formRegister__item" for="email">
+                email
+                <input class="formRegister__itemInput" type="email" name="email">
+            </label>
+            <label class="formRegister__item" for="phone">
+                celular
+                <input class="formRegister__itemInput" type="text" name="phone">
+            </label>
+            <button class="formRegister__itemButton btn__default">Enviar</button>
+        </form>
+   </main>
+   <footer class="footer">
+       <h2 class="footer__title">Ajude a propagar essa ideia ;)</h2>
+       <i class="footer__iconsSocial fab fa-facebook-f"></i>
+       <i class="footer__iconsSocial fab fa-instagram"></i>
+       <i class="footer__iconsSocial fab fa-twitter"></i>
+   </footer>
+</body>
 </html>
