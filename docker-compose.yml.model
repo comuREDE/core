@@ -1,0 +1,22 @@
+php:
+  image: heliortf/php-7.2
+  volumes:
+   - ./:/var/www/html/
+   -  /usr/bin/ssh:/usr/bin/ssh
+  links:
+     - mysql:localhost_mysql
+  environment:
+   - XDEBUG_CONFIG=remote_host=172.17.0.1
+   - PHP_IDE_CONFIG=serverName=local
+  ports:
+   - "80:80"
+
+mysql:
+  image: mysql:5.6
+  volumes:
+   - ./volumes/mysql:/var/lib/mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: my-secret_pw
+    MYSQL_DATABASE: lamp
+    MYSQL_USER:  lamp_user
+    MYSQL_PASSWORD: lamp_pass
