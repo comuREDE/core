@@ -1,34 +1,161 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.4.1/css/all.css' integrity='sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz' crossorigin='anonymous'>
-  <link href="fonts/fonts.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <title>comuREDE</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.4.1/css/all.css' integrity='sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz' crossorigin='anonymous'>
+    <link href="fonts/fonts.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>comuREDE</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!-- Link Guide https://developers.google.com/chart/interactive/docs/gallery/areachart -->
+    <script>
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Aguá', 'Caindo'],
+                [1, 1],
+                [2, 1],
+                [3, 1],
+                [4, 0],
+                [5, 1],
+                [6, 0],
+                [7, 1],
+
+            ]);
+
+            var options = {
+                title: 'últimos 7 dias',
+                titleTextStyle: {
+                    color: '#9e3eba'
+                },
+                hAxis: {
+                    title: 'Dias',
+                    titleTextStyle: {
+                        color: '#9e3eba'
+                    },
+                    baseline: '7',
+                    baselineColor: '#00A79E',
+                    gridlines: {
+                        color: 'none',
+                    }
+                },
+                vAxis: {
+                    // minValue: 1,
+                    baselineColor: '#00A79E',
+                    gridlines: {
+                        color: 'none',
+                    }
+                },
+                colors: ['#FF8760', '#00A79E'],
+                backgroundColor: '#4e1d69',
+                chartArea: {
+                    backgroundColor: '#4e1d69',
+                    left: 20,
+                    width: '90%'
+                },
+                series: {
+                    0: {
+                        lineWidth: 4,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.AreaChart(document.getElementById('chart_div--ligth'));
+            chart.draw(data, options);
+        }
+    </script>
+    <script>
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Aguá', 'Caindo'],
+                [1, 1],
+                [2, 1],
+                [3, 1],
+                [4, 0],
+                [5, 1],
+                [6, 0],
+                [7, 1],
+
+            ]);
+
+            var options = {
+                title: 'últimos 7 dias',
+                titleTextStyle: {
+                    color: '#9e3eba'
+                },
+                hAxis: {
+                    title: 'Dias',
+                    titleTextStyle: {
+                        color: '#9e3eba'
+                    },
+                    baseline: '7',
+                    baselineColor: '#00A79E',
+                    gridlines: {
+                        color: 'none',
+                    }
+                },
+                vAxis: {
+                    // minValue: 1,
+                    baselineColor: '#00A79E',
+                    gridlines: {
+                        color: 'none',
+                    }
+                },
+                colors: ['#FF8760', '#00A79E'],
+                backgroundColor: '#4e1d69',
+                chartArea: {
+                    backgroundColor: '#4e1d69',
+                    left: 20,
+                    width: '90%'
+                },
+                series: {
+                    0: {
+                        lineWidth: 4,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.AreaChart(document.getElementById('chart_div--water'));
+            chart.draw(data, options);
+        }
+    </script>
 </head>
+
 <body class="bodyServices">
-  <header class="header">
-    <h1 class="header__title header__title--services">Serviços</h1>
-  </header>
-  <main class="container container--services">
-    <section class="container__section">
-      <h2 class="container__title container__title--service">Ta caindo água?</h2>
-      <img class="container__imgIndicator" src="images/Icone-torneira.svg" alt="Torneira">
-      <img class="container__graficoTemporário" src="images/modeloGrafico.png" alt="Gráfico">
-    </section>
-    <section class="container__section">
-        <img class="container__imgIndicator" src="images/Icone-Lampada.svg" alt="Lampada">
-        <h2 class="container__title container__title--service container__title--right">Ta com luz?</h2>
-        <img class="container__graficoTemporário" src="images/modeloGrafico.png" alt="Gráfico">
-      </section>
-  </main>
-  <footer class="footer footer--service">
-    <a class="footer__linkHome" href="index.html">
-      <img class="footer__logoService" src="images/logo-comuREDE_02.png" alt="">
-    </a>
-  </footer>
+    <header class="header">
+        <h1 class="header__title header__title--services">Serviços</h1>
+    </header>
+    <main class="container container--services">
+        <section class="container__section">
+            <h2 class="container__title container__title--service">Ta caindo água?</h2>
+            <img class="container__imgIndicator" src="images/Icone-torneira.svg" alt="Torneira">
+            <div id="chart_div--water"></div>
+            <!-- <img class="container__graficoTemporário" src="images/modeloGrafico.png" alt="Gráfico"> -->
+        </section>
+        <section class="container__section">
+            <img class="container__imgIndicator" src="images/Icone-Lampada.svg" alt="Lampada">
+            <h2 class="container__title container__title--service container__title--right">Ta com luz?</h2>
+            <div id="chart_div--ligth"></div>
+            <!-- <img class="container__graficoTemporário " src="images/modeloGrafico.png " alt="Gráfico "> -->
+        </section>
+    </main>
+    <footer class="footer footer--service ">
+        <a class="footer__linkHome " href="index.html ">
+            <img class="footer__logoService " src="images/logo-comuREDE_02.png " alt=" ">
+        </a>
+    </footer>
 </body>
+
 </html>
