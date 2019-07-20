@@ -308,7 +308,7 @@ function enviaSMS($ddd,$celular,$msg,$tipo='rapido'){
 	#echo "<hr>",$ddd,"<hr>",$celular,"<hr>",$msg,"<br>";
 	$campos = [
 		'strUsuario' => urlencode('comurede_dev'),
-		'strSenha' => urlencode('Comux01$'),
+		'strSenha' => urlencode(''),
 		'intDDD' => urlencode($ddd),
 		'intCelular' => urlencode($celular),
 		'memMensagem' => urlencode($msg),

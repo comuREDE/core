@@ -6,8 +6,8 @@ DEFINE ('NAME', 'comurede');
 DEFINE ('PASS', '123');
 
 ############################################
-DEFINE ('GMAIL', 'tacaindoagua@gmail.com');
-DEFINE ('SENHA', 'Comux01$');
+DEFINE ();
+DEFINE ();
 
 ############################################
 /*
