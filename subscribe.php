@@ -1,48 +1,59 @@
 <?php
+require 'init.php';
 
-include "conecta.php";
-
-require("phpMQTT.php");
-
-$mqtt = new phpMQTT("10.62.63.50", 1883, "phpMQTT"); //Change client name to something unique
-
+$mqtt = new phpMQTT("127.0.0.1", 1883, "phpMQTT"); //Change client name to something unique
 if(!$mqtt->connect()){
-        exit(1);
+    echo "Erro ao conectar MQTT";die;
 }
-
-
 $topics['AGUA'] = array("qos"=>0, "function"=>"procmsg_agua");
 $topics['LUZ'] = array("qos"=>0, "function"=>"procmsg_luz");
+
 $mqtt->subscribe($topics,0);
-
-
 
 while($mqtt->proc()){
 
 }
-
-
 $mqtt->close();
 
-function procmsg_luz($topic,$msg){
-                global $mysqli;
-                echo "Msg Recebida: ".date("r")."\nTopic:{$topic}\n$msg\n";
-                $data = date("Y-m-d H:i:s");
-                $sql = "INSERT INTO sensores_luz VALUES(null, '$data', '$msg', null)";
-                echo $sql . "\n";
-                $result =  $mysqli->real_query($sql);
-                var_dump($result);
+
+function processaTopico($msg){
+	# $topic AGUA LUZ
+	#1 $msg (L/D)__12345-Y
+	#2 $msg (L/D)__12345789-XXXX
+	echo "<br>",$msg," : ";
+	if(preg_match("/(L|D)__(\d{8})-(\d{1,2})/",$msg,$matches)){
+		$estado = $matches[1];
+		$cep = $matches[2];
+		$sensor = (int) $matches[3];
+		echo sprintf("estado:%s - cep:%s - sensor:%s",$estado,$cep,$sensor);
+		$arr = compact("estado","cep","sensor");
+		var_dump($arr);
+		return $arr;
+	} 
+	return null;
 }
 
+function procmsg_luz($topic,$msg){
+
+    echo "Msg Recebida: ".date("r")."\nTopic:{$topic}\n$msg\n";
+    $data = date("Y-m-d H:i:s");
+	$dados = processaTopico($msg);#"estado","cep","sensor"
+	extract($dados);#$estado $cep $sensor
+	$info = ['dia_hora'=>$data,'estado'=>$estado,'cep'=>$cep,'sensor'=>$sensor,];              
+
+	$res = (new Model())->setTable('sensores_luz')->save($info);
+
+	var_dump($res);
+}
 
 function procmsg_agua($topic,$msg){
-                global $mysqli; 
-                echo "Msg Recebida: ".date("r")."\nTopic:{$topic}\n$msg\n";
-                $data = date("Y-m-d H:i:s");
-                $sql = "INSERT INTO sensores_agua VALUES(null, '$data', '$msg', null)";
-                echo $sql . "\n"; 
-                $result =  $mysqli->real_query($sql);
-                var_dump($result);
-}
+    echo "Msg Recebida: ".date("r")."\nTopic:{$topic}\n$msg\n";
+    $data = date("Y-m-d H:i:s");
+	$dados = processaTopico($msg);#"estado","cep","sensor"
+	extract($dados);#$estado $cep $sensor
+	$info = ['dia_hora'=>$data,'estado'=>$estado,'cep'=>$cep,'sensor'=>$sensor,];              
 
-?>
+	$res = (new Model())->setTable('sensores_agua')->save($info);
+
+	var_dump($res);
+}
