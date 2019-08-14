@@ -2,38 +2,36 @@
 
 require("init.php");
 require("funcoes.php");
-echo "<pre>";
 
+
+//Loop para manter o script PHP rodando indefinidamente, com intervalos de 30 segundos
 #principal_A();
 while(1){
 	inicio:
-	echo "\n----------- agua -----------<br>";
+	//echo "\n----------- agua -----------<br>";
 	principal_A();
-	echo "final de um ciclo<br>";
-	sleep(30);
+	//echo "final de um ciclo<br>";
+	sleep(10);
 	goto inicio;	
 }
 
-
+// funcao principal que controla as chamadas das funcoes de tratamento de filtro das msgs MQTT
 function principal_A(){
-	echo "\n<h1>inicio - ".date('d/m/Y H:i:s')."</h1>";
+	//echo "\n<h1>inicio - ".date('d/m/Y H:i:s')."</h1>";
 	filtroPrimarioAgua();
 	#sleep(120);
-	echo "\n<h1>passou pelo primario - ".date('d/m/Y H:i:s')."</h1>";
+	//echo "\n<h1>passou pelo primario - ".date('d/m/Y H:i:s')."</h1>";
 	filtroSecundario('A');
 	#sleep(60);
-	echo "\n<h1>passou pelo secundario - ".date('d/m/Y H:i:s')."</h1>";
+	//echo "\n<h1>passou pelo secundario - ".date('d/m/Y H:i:s')."</h1>";
 	alertaSMS('A');
-	echo "\n<h1>recebeu os sms - ".date('d/m/Y H:i:s')."</h1>";
+	//echo "\n<h1>recebeu os sms - ".date('d/m/Y H:i:s')."</h1>";
 	#sleep(30);
-	echo "\n<h1>fim Agua - ".date('d/m/Y H:i:s')."</h1>";
+	//echo "\n<h1>fim Agua - ".date('d/m/Y H:i:s')."</h1>";
 }
-####################################################
 
 
 function filtroPrimarioAgua(){
-	echo "<h3>".__FUNCTION__."</h3>";
-
 	$q="SELECT id, dia_hora,
 	DATE_FORMAT(dia_hora,'%Y/%m/%d %H:%i:%s') as data_hora,
 	status,created_at, updated_at,
@@ -44,12 +42,7 @@ function filtroPrimarioAgua(){
 	LIMIT 1000
 	;";
 
-	#echo $q;
-
 	$res = (new BD())->query($q);
-
-
-	#print_r($res);
 
 	$loop=false;
 	$regs=[];
@@ -96,8 +89,6 @@ function filtroPrimarioAgua(){
 		$flags[]= $res[$ultimo]['id'];
 		$flags[]= $res[$penultimo]['id'];
 
-		#print_r($flags);
-
 		atualizaFlags($flags,'T','sensores_agua');
 
 		if(is_array($regs)){
@@ -108,11 +99,9 @@ function filtroPrimarioAgua(){
 
 
 	} else {
-		echo "Total Menor que 3 registros";
+		echo "Aguardando Novas MSGS via MQTT".PHP_EOL;
+		//echo "Total Menor que 3 registros";
 	}
 	
 
-	echo "<h1>Triagem Agua ". date('d/m/Y H:i:s')."</h1>";
 }
-
-

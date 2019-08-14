@@ -128,8 +128,36 @@ class BD {
 	} 
 
 	/**
-	Funcao aux que serve para informar o tipo de dado no prepared st
-	Somente mysql. No postgre nao funciona
+	 * Função para atualizar o campo 'enviado' na tabela relatorios para auxiliar a determinar quando o próximo SMS deve ser enviado.
+	 */
+	
+	function updateSMSStatus()
+	{
+		$pdo = self::getCN();
+		$sql = 'UPDATE relatorios SET enviado = "1" ORDER BY data_envio DESC LIMIT 1';
+		$statement = $pdo->prepare($sql);
+		$statement->execute();
+		//echo 'SMS Atualizado para Enviado'.PHP_EOL;
+	}
+
+	/**
+	 * Função para atualizar o campo 'dado' do registro 'sms_on' na tabela sistema para ligar ou desligar o envio de SMS
+	 */
+
+	function setOnOffSMS($parametro)
+	{
+		$pdo = self::getCN();
+		$sql = "UPDATE sistema SET dado = '$parametro' WHERE info = 'sms_on';";
+		$statement = $pdo->prepare($sql);
+		$statement->execute();
+		//echo 'SMS Atualizado para Enviado'.PHP_EOL;
+	}
+
+
+
+	/**
+	*Funcao aux que serve para informar o tipo de dado no prepared st
+	*Somente mysql. No postgre nao funciona
 	*/
 
 	private function param_type($param) {
@@ -145,7 +173,7 @@ class BD {
 	}
 
 	/**
-	Funcao que monta a query para se debugar erros de SQL, pois com prepared st vc nao consegue printar a query do jeito correto
+	* Funcao que monta a query para se debugar erros de SQL, pois com prepared st vc nao consegue printar a query do jeito correto
 	*/
 
 	protected function debugSQL($tabela, $sql,$post,$valores,$where){
@@ -173,6 +201,13 @@ class Model extends BD{
 
 	private $table;
 	private $pk='id';
+
+
+	public function updSMS()
+	{
+		$updsms = $this->update();
+		return $updsms;
+	}
 
 	/**
 
@@ -269,8 +304,6 @@ class Model extends BD{
 		return array_key_exists($pk, $post) && is_numeric($post[$pk])? $this->upd($post) : $this->add($post);
 	}
 
-
-
 	/**
 
 	*/
@@ -314,8 +347,6 @@ class Model extends BD{
 		
 	}
 
-
-
 	/**
 
 	*/
@@ -357,5 +388,12 @@ class Model extends BD{
 	    return (bool) $this->query($sql, $valores); # se repetir 2x da erro pois ele deleta oq ja foi deletado	
 	}
 
+
+
+	// function updateEnvioSMS()
+	// {
+	// 	$sql = "";
+
+	// }
 
 }

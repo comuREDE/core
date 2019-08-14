@@ -1,12 +1,14 @@
 <?php
 
-DEFINE ('USER', 'remote');
-DEFINE ('HOST', '127.0.0.1');
-DEFINE ('NAME', 'comurede');
-DEFINE ('PASS', '712306Ma');
+
+DEFINE ('USER', 'root');
+DEFINE('PASS', 'root');
+DEFINE ('HOST', 'localhost:3306');
+DEFINE ('NAME', 'comurede_dev');
 ############################################
 DEFINE ('GMAIL', 'tacaindoagua@gmail.com');
-DEFINE ('SENHA', 'Comux01$');
+// DEFINE ('SENHA', $sms_s);
+
 
 ############################################
 /*

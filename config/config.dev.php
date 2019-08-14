@@ -1,13 +1,13 @@
 <?php
 
-DEFINE ('USER', 'root');
-DEFINE ('HOST', '127.0.0.1');
-DEFINE ('NAME', 'comurede');
-DEFINE ('PASS', '123');
+DEFINE ('HOST', 'localhost:3306');
+DEFINE('NAME', 'comurede_dev');
+DEFINE('USER', 'root');
+DEFINE ('PASS', 'root');
 
 ############################################
-DEFINE ();
-DEFINE ();
+// DEFINE ();
+// DEFINE ();
 
 ############################################
 /*
