@@ -48,6 +48,8 @@ MySQL
 
 [Modelo Entidade Relacional](https://olha.ai/2fUSM)
 
+[Arquivo de exemplo](https://olha.ai/PlUOC) NOVO
+
 [Arquivo de exemplo](https://olha.ai/2nTZp) REAL (SET18 a JUL19)
 
 
