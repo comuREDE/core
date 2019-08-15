@@ -1,6 +1,6 @@
 <?php 
 require 'init.php';
-/*este eh commentario*/≈
+
 
 if($_POST){
   extract($_POST);
