@@ -27,7 +27,7 @@ function processaTopico($msg){
 	#3 $msg (L/D)__12345789-XX_YY___ZZZ < X: sensor id | Y: pressao | Z: vazao
 
 	//echo "<br>",$msg," : ";
-	if(preg_match("/(L|D)__(\d{8})-(\d{1,2})_(\d{1,2})___(\d{1,2})/",$msg,$matches)){
+	if(preg_match("/(L|D)__(\d{8})-(\d{1,2})(_(\d{1,2})___(\d{1,2}))?/",$msg,$matches)){
 		$estado = $matches[1];
 		$cep = $matches[2];
 		$sensor = (int) $matches[3];
