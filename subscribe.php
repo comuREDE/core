@@ -26,20 +26,30 @@ function processaTopico($msg){
 	#2 $msg (L/D)__12345789-XXXX
 	#3 $msg (L/D)__12345789-XX_YY___ZZZ < X: sensor id | Y: pressao | Z: vazao
 
-	//echo "<br>",$msg," : ";
-	if(preg_match("/(L|D)__(\d{8})-(\d{1,2})(_(\d{1,2})___(\d{1,2}))?/",$msg,$matches)){
+	echo $msg.PHP_EOL;
+	if(preg_match("/(L|D)__(\d{8})-(\d{1,2})_(\d{1,2})___(\d{1,2})/",$msg,$matches, PREG_UNMATCHED_AS_NULL)){
 		$estado = $matches[1];
 		$cep = $matches[2];
 		$sensor = (int) $matches[3];
 		$pressao = (int) $matches[4];
-		$vazao = (int) $matches[5];
+		$vazao = (int) $matches[5];		
 		$arr = compact("estado","cep","sensor","pressao","vazao");
 		echo " -- Recebida MSG do MQTT --";
 		echo PHP_EOL;
 		echo " -- CEP: ".$cep." -- Pressão: ".$pressao." Vazão: ".$vazao;
 		echo PHP_EOL;
 		return $arr;
-	} 
+	} elseif(preg_match("/(L|D)__(\d{8})-(\d{1,2})/", $msg, $matches, PREG_UNMATCHED_AS_NULL)){
+		$estado = $matches[1];
+		$cep = $matches[2];
+		$sensor = (int) $matches[3];
+		$arr = compact("estado", "cep", "sensor");
+		echo " -- Recebida MSG do MQTT --";
+		echo PHP_EOL;
+		echo " -- CEP: " . $cep;
+		echo PHP_EOL;
+		return $arr;
+	}
 	return null;
 }
 
