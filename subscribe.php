@@ -24,15 +24,19 @@ function processaTopico($msg){
 	# $topic AGUA LUZ
 	#1 $msg (L/D)__12345-Y
 	#2 $msg (L/D)__12345789-XXXX
+	#3 $msg (L/D)__12345789-XX_YY___ZZZ < X: sensor id | Y: pressao | Z: vazao
+
 	//echo "<br>",$msg," : ";
-	if(preg_match("/(L|D)__(\d{8})-(\d{1,2})/",$msg,$matches)){
+	if(preg_match("/(L|D)__(\d{8})-(\d{1,2})_(\d{1,2})___(\d{1,2})/",$msg,$matches)){
 		$estado = $matches[1];
 		$cep = $matches[2];
 		$sensor = (int) $matches[3];
-		$arr = compact("estado","cep","sensor");
+		$pressao = (int) $matches[4];
+		$vazao = (int) $matches[5];
+		$arr = compact("estado","cep","sensor","pressao","vazao");
 		echo " -- Recebida MSG do MQTT --";
 		echo PHP_EOL;
-		echo " -- CEP: ".$cep." --";
+		echo " -- CEP: ".$cep." -- Pressão: ".$pressao." Vazão: ".$vazao;
 		echo PHP_EOL;
 		return $arr;
 	} 
@@ -54,8 +58,7 @@ function procmsg_agua($topic,$msg){
     $data = date("Y-m-d H:i:s");
 	$dados = processaTopico($msg);#"estado","cep","sensor"
 	extract($dados);#$estado $cep $sensor
-	$info = ['dia_hora'=>$data,'estado'=>$estado,'cep'=>$cep,'sensor'=>$sensor,];              
-
+	$info = ['dia_hora'=>$data,'estado'=>$estado,'cep'=>$cep,'sensor'=>$sensor,'pressao' => $pressao, 'vazao' => $vazao];              
 	$res = (new Model())->setTable('sensores_agua')->save($info);
 
 }
