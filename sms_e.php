@@ -7,9 +7,9 @@ echo "<pre>";
 #principal_E();
 while(1){
 	inicio:
-	//echo "\n----------- luz (Energ) -----------<br>";
+	echo "\n----------- luz (Energ) -----------<br>";
 	principal_E();
-	//echo "\n----final de um ciclo<br>";
+	echo "\n----final de um ciclo<br>";
 	sleep(150);
 	goto inicio;	
 }
@@ -19,23 +19,23 @@ while(1){
 
 
 function principal_E(){
-	//echo "\n<h1>inicio - ".date('d/m/Y H:i:s')."</h1>";
+	echo "\n<h1>inicio - ".date('d/m/Y H:i:s')."</h1>";
 	filtroPrimarioLuz();
 	#sleep(120);
-	//echo "\n<h1>passou pelo primario - ".date('d/m/Y H:i:s')."</h1>";
+	echo "\n<h1>passou pelo primario - ".date('d/m/Y H:i:s')."</h1>";
 	filtroSecundario('E');
 	#sleep(60);
-	//echo "\n<h1>passou pelo secundario - ".date('d/m/Y H:i:s')."</h1>";
+	echo "\n<h1>passou pelo secundario - ".date('d/m/Y H:i:s')."</h1>";
 	alertaSMS('E');
-	//echo "\n<h1>recebeu os sms - ".date('d/m/Y H:i:s')."</h1>";
+	echo "\n<h1>recebeu os sms - ".date('d/m/Y H:i:s')."</h1>";
 	#sleep(30);
-	//echo "\n<h1>fim da luz - ".date('d/m/Y H:i:s')."</h1>";
+	echo "\n<h1>fim da luz - ".date('d/m/Y H:i:s')."</h1>";
 }
 
 
 
 function filtroPrimarioLuz(){
-	//echo "<h3>".__FUNCTION__."</h3>";
+	echo "<h3>".__FUNCTION__."</h3>";
 
 	$sql="SELECT id, dia_hora,
 	DATE_FORMAT(dia_hora,'%Y/%m/%d %H:%i:%s') as data_hora,
@@ -47,7 +47,7 @@ function filtroPrimarioLuz(){
 	;";
 	$res = (new BD())->query($sql);
 
-	//print_r($res);
+	print_r($res);
 	#die;
 	$loop=false;
 	$regs=[];
@@ -106,7 +106,10 @@ function filtroPrimarioLuz(){
 		}
 
 	} else {
-		echo "Aguardando Novas MSGS via MQTT" . PHP_EOL;
+		echo "Total menor que 3 regs.";
 	}
 
+
+	echo "<h1>Triagem Luz ". date('d/m/Y H:i:s')."</h1>";
 }
+

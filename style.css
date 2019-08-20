@@ -306,19 +306,3 @@ button:focus{
   }
 }
 /* Footer -> end */
-
-/* Novas Classes */
-
-hr {
-      width: 100%;
-      margin: 20px;
-}
-
-.table-bg{
-  width: 85%;
-  background-color: #E5E5E5;
-} 
-
-.p-20{
-  padding: 20px;
-}
