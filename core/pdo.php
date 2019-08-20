@@ -153,6 +153,38 @@ class BD {
 		//echo 'SMS Atualizado para Enviado'.PHP_EOL;
 	}
 
+	/**
+	 * Função para inserir moradores na tabela de cadastros
+	 */
+	function insertCadastro($celular, $email, $nome, $cep)
+	{
+		$pdo = self::getCN();
+		$sql = "INSERT INTO cadastros (celular, email, nome, cep) VALUES (?,?,?,?)";
+		$statement = $pdo->prepare($sql);
+		$statement->execute([$celular, $email, $nome, $cep]);
+	}
+
+	/**
+	 * Função para editar moradores na tabela de cadastros
+	 */
+	function editCadastro($celular, $email, $nome, $cep)
+	{
+		$pdo = self::getCN();
+		$sql = "UPDATE cadastros SET (celular, email, nome, cep) VALUES (?,?,?,?)";
+		$statement = $pdo->prepare($sql);
+		$statement->execute([$celular, $email, $nome, $cep]);
+	}
+
+	/**
+	 * Função para inserir moradores na tabela de cadastros
+	 */
+	function deleteCadastro($celular, $email, $nome, $cep)
+	{
+		$pdo = self::getCN();
+		$sql = "INSERT INTO cadastros (celular, email, nome, cep) VALUES (?,?,?,?)";
+		$statement = $pdo->prepare($sql);
+		$statement->execute([$celular, $email, $nome, $cep]);
+	}
 
 
 	/**

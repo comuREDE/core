@@ -132,20 +132,6 @@ function alertaSMS($tipo){
 
 		/************ FAZER HOJE  >>>>>>>>> 11/08 ->>>> VALIDAR COM A QUERY ACIMA O ENVIO DE SMS */
 
-		// echo 'sms prazo: '.PHP_EOL;
-		// var_dump(count($envioAnterior)).PHP_EOL;
-		// var_dump(count($envioHoje)) . PHP_EOL;
-
-		//Validar se foi enviado no mesmo dia usando a data de update da tabela relatorios
-		// $dataHoje = new DateTime();	
-		// $dataUpdateRelat = new DateTime($envioRelatorio[0]['data_envio']);
-		// //var_dump($dataUpdateRelat);
-		// $diffDatas = $dataHoje->diff($dataUpdateRelat);
-		// echo PHP_EOL.$diffDatas->i.PHP_EOL;
-
-
-
-// VALIDAR QUAL SMS FOI ENVIADO DE FATO E BASEAR NELE PARA DETERMINAR O PRAZO OAO INVES DO ULTIMO REGISTRO MAIS RECENTE
 
 		// Se o retorno do count de CEP for maior que 0, significa que está nas duas tabelas e já foi enviado.
 		//simulando com diferenca de 2 minutos usar diffDatas->d < 1 em producao
@@ -199,7 +185,9 @@ function alertaSMS($tipo){
 
 			}
 		}else{
+			
 			echo 'SMS Desligado - Verifique a configuração.'.PHP_EOL;
+
 			}
 		}
 	}
