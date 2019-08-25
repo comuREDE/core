@@ -51,11 +51,9 @@ function filtroPrimarioAgua(){
 	if($count > 2){
 		for($i=0; $i<$count-2; $i++){
 			$id_davez = $res[$i]['id'];
-
 			$atual_estado=$res[$i]['estado'];
 			$proximo_estado=$res[$i+1]['estado'];
 			$proximo_prox_estado=$res[$i+2]['estado'];
-
 			if($atual_estado==='D'){
 				$loop=false;
 			}

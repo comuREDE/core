@@ -159,6 +159,12 @@ class BD {
 	function insertCadastro($celular, $email, $nome, $cep)
 	{
 		$pdo = self::getCN();
+
+		if(empty($this->nome) || is_null($this->nome)){
+			var_dump($nome);
+			die('null');
+		}
+
 		$sql = "INSERT INTO cadastros (celular, email, nome, cep) VALUES (?,?,?,?)";
 		$statement = $pdo->prepare($sql);
 		$statement->execute([$celular, $email, $nome, $cep]);

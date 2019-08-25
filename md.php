@@ -1,7 +1,6 @@
 <?php 
 require 'init.php';
 
-
 if($_POST){
   extract($_POST);
 
@@ -63,14 +62,14 @@ function montaEnviaEmail(string $email,string $data1,string $data2, string $cep,
   $msg = $header . $texto . $footer;
   $assunto = "Relatório comuREDE ($tipo_diferencial)";
   $nome = "Usuário comuREDE";
-  return enviaEmail(GMAIL,"comuREDE",SENHA,$email,$nome,$assunto,$msg);
+  return enviaEmail(GMAIL,"comuREDE",EMAIL_S,$email,$nome,$assunto,$msg);
 
 }
 
 
 function montaRelatorioEmail($data1,$data2,$cep,$tipo='A'){
 
-  $q="SELECT DISTINCT data_hora FROM relatorios WHERE 
+  $q="SELECT DISTINCT data_hora FROM triagem WHERE 
   CAST(data_hora AS DATE) BETWEEN '$data1' AND '$data2' AND tipo='$tipo';";
   #echo $q;
   $res = (new BD())->query($q);
@@ -100,6 +99,7 @@ function enviaEmail($emailDeOrigem,$nomeDeOrigem,$senha,$emailDeDestino,$nomeDeD
   // Config Gmail
   $mail->IsSMTP(); // Define que a mensagem será SMTP
   $mail->SMTPAuth   = true;                  // enable SMTP authentication
+  $mail->SMTPDebug = 1;
   $mail->SMTPSecure = "tls";                 // sets the prefix to the servier
   $mail->Host       = "smtp.gmail.com";      // sets GMAIL as the SMTP server
   $mail->Port       = 587;                   // set the SMTP port for the GMAIL server

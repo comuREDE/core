@@ -2,7 +2,6 @@
 
 require("init.php");
 require("funcoes.php");
-echo "<pre>";
 
 #principal_E();
 while(1){
@@ -10,8 +9,8 @@ while(1){
 	//echo "\n----------- luz (Energ) -----------<br>";
 	principal_E();
 	//echo "\n----final de um ciclo<br>";
-	sleep(150);
-	goto inicio;	
+	sleep(10);
+	goto inicio;
 }
 
 

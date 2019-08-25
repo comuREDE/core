@@ -22,8 +22,12 @@ require "core/SMTP.php";
 
 //Chamada ao banco de dados para obter dados de forma mais segura
 $s = (new BD())->query("SELECT dado FROM sistema WHERE info = 'sms_s'");
+
+//Chamada ao banco de dados para obter dados de forma mais segura
+$s2 = (new BD())->query("SELECT dado FROM sistema WHERE info = 'email_s'");
 //var_dump($s[0]['dado']);
 DEFINE('SMS_S' , $s[0]['dado']);
+DEFINE('EMAIL_S', $s2[0]['dado']);
 
 #if(!session_id()){
 #	session_start();

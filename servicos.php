@@ -4,16 +4,16 @@ require 'init.php';
 #pegar o param cep
 
 #$cep = $_GET['cep'];
-$cep="24130400";
+$cep = "31170220";
 
 $param = $_GET['param'];
 switch ($param) {
 	case 'estado_agua_agora':
 		#$d1="2019/02/13 11:59:10";
-		$d1=date('Y/m/d H:i:s');
+		$d1 = date('Y/m/d H:i:s');
 		#echo $d1,'<hr>';
 		$data = new DateTime($d1);
-		
+
 		$hora = $data->format('H');
 		$min = $data->format('i');
 
@@ -21,7 +21,7 @@ switch ($param) {
 		$mes = $data->format('m');
 		$ano = $data->format('Y');
 
-		$q="SELECT id, estado, status, dia_hora
+		$q = "SELECT id, estado, status, dia_hora
 		FROM sensores_agua 
 		WHERE 
 		cep='$cep' 
@@ -37,39 +37,39 @@ switch ($param) {
 
 		$res = (new BD())->query($q);
 		#print_r($res);
-		
+
 		# neste caso trocar um pelo outro
 		#####################################################
 		#echo json_encode($res[0],true);
-		echo json_encode($res[0]['estado'],true);
+		echo json_encode($res[0]['estado'], true);
 		#####################################################
-	break;
-	
+		break;
+
 	case 'estado_agua_grafico':
 		#$d1="2019/02/28";
-		$d1=date('Y/m/d');
+		$d1 = date('Y/m/d');
 
 		$data1 = new DateTime($d1);
 		$data_str_1 = $data1->format('Y/m/d');
-		
+
 		$data2 = $data1->modify('-7 day');
 		$data_str_2 = $data2->format('Y/m/d');
 
-		$tipo='A';
-		$res = montaJSONsemanal($data_str_2,$data_str_1,$cep,$tipo);
-		echo json_encode($res,true);
+		$tipo = 'A';
+		$res = montaJSONsemanal($data_str_2, $data_str_1, $cep, $tipo);
+		echo json_encode($res, true);
 
 
-	break;	
+		break;
 
 
 	case 'estado_luz_agora':
 
 		#$d1="2019/02/13 11:59:10";
-		$d1=date('Y/m/d H:i:s');
+		$d1 = date('Y/m/d H:i:s');
 		#echo $d1,'<hr>';
 		$data = new DateTime($d1);
-		
+
 		$hora = $data->format('H');
 		$min = $data->format('i');
 
@@ -77,7 +77,7 @@ switch ($param) {
 		$mes = $data->format('m');
 		$ano = $data->format('Y');
 
-		$q="SELECT id, estado, status, dia_hora
+		$q = "SELECT id, estado, status, dia_hora
 		FROM sensores_luz 
 		WHERE 
 		cep='$cep' 
@@ -95,40 +95,40 @@ switch ($param) {
 
 		#####################################################
 		#echo json_encode($res[0],true);
-		echo json_encode($res[0]['estado'],true);
+		echo json_encode($res[0]['estado'], true);
 		#####################################################
 
-	break;
-	
+		break;
+
 	case 'estado_luz_grafico':
 		#$d1="2019/02/28";
-		$d1=date('Y/m/d');
+		$d1 = date('Y/m/d');
 
 		$data1 = new DateTime($d1);
 		$data_str_1 = $data1->format('Y/m/d');
-		
+
 		$data2 = $data1->modify('-7 day');
 		$data_str_2 = $data2->format('Y/m/d');
 
-		$tipo='E';
-		$res = montaJSONsemanal($data_str_2,$data_str_1,$cep,$tipo);
-		echo json_encode($res,true);
+		$tipo = 'E';
+		$res = montaJSONsemanal($data_str_2, $data_str_1, $cep, $tipo);
+		echo json_encode($res, true);
 
-	break;	
+		break;
 
 	default:
 		echo "Informe um parametro";
-	break;
+		break;
 }
 
 
 # BETWEEN '2019/02/25' AND '2019/03/02'
-function montaJSONsemanal($data2,$data1,$cep,$tipo){
+function montaJSONsemanal($data2, $data1, $cep, $tipo)
+{
 	#echo "<pre>";
-	$q="SELECT 
+	$q = "SELECT 
 	DATE_FORMAT(data_hora,'%Y/%m/%d') as `data`
-	
-	FROM relatorios 
+	FROM triagem
 	WHERE (CAST(data_hora AS DATE) BETWEEN '$data2' AND '$data1') 
 	AND cep='$cep'
 	AND tipo='$tipo'
@@ -145,18 +145,18 @@ function montaJSONsemanal($data2,$data1,$cep,$tipo){
 	$d1 = DateTime::createFromFormat('Y/m/d', $data2);
 	$d2 = DateTime::createFromFormat('Y/m/d', $data1);
 
-	$diff = $d2->diff($d1)->format("%a");	
-	$dias_sem = ['D','S','T','Q','Q','S','S',];
+	$diff = $d2->diff($d1)->format("%a");
+	$dias_sem = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S',];
 
 	#echo $diff;
-	$json=[];
+	$json = [];
 	$data = DateTime::createFromFormat('Y/m/d', $data2);
 
 	#echo '<hr>',$data1,'<hr>',$data2,'<hr>';
-	
+
 	$data->modify('-1 day');
 
-	for($i=0;$i<=$diff;$i++){
+	for ($i = 0; $i <= $diff; $i++) {
 
 		$data->modify('+1 day');
 		$data_str = $data->format('Y/m/d');
@@ -165,12 +165,13 @@ function montaJSONsemanal($data2,$data1,$cep,$tipo){
 		#print_r($data_str);
 		#print_r($datas);
 		#echo "<hr>";
-		$json[]=
-				['data'=>$data_str,
-				 'dia'=> $dias_sem[date('w',strtotime($data_str))] ." ". $data_str2,
-				 'caiu'=>in_array($data_str,$datas)?1:0
-				 #'caiu'=>in_array($data_str,$datas)?0:1
-				]; 	
+		$json[] =
+			[
+				'data' => $data_str,
+				'dia' => $dias_sem[date('w', strtotime($data_str))] . " " . $data_str2,
+				'caiu' => in_array($data_str, $datas) ? 1 : 0
+				#'caiu'=>in_array($data_str,$datas)?0:1
+			];
 	}
 
 	#print_r($json);

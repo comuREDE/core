@@ -47,7 +47,6 @@ if ($_POST['cadastrar'] == '1') {
             <button class="boxButtons__btn btn__default" id="internet">Navegar na Internet</button>
         </div>
         <form class="container__formRegister" method="POST" action="">
-            <input type="hidden" name="cep" value="24130400">
             <h2 class="formRegister__title">
                 Cadastre-se abaixo e receba notificações por SMS quando cair água na sua rua ou faltar luz.
             </h2>
