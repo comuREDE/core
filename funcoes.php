@@ -129,13 +129,7 @@ function alertaSMS($tipo){
 		$sms_on = (new BD())->query("SELECT s.dado FROM sistema s WHERE info = 'sms_on'");
 		$sms_status = $sms_on[0]['dado'];
 
-
-		/************ FAZER HOJE  >>>>>>>>> 11/08 ->>>> VALIDAR COM A QUERY ACIMA O ENVIO DE SMS */
-
-
 		// Se o retorno do count de CEP for maior que 0, significa que está nas duas tabelas e já foi enviado.
-		//simulando com diferenca de 2 minutos usar diffDatas->d < 1 em producao
-		// count($cepTriagem) < 0) && count($cepRelatorio) < 0
 		if( (count($cepTriagem) > 0) && count($cepRelatorio) > 0 && count($envioHoje) > 0 && $sms_status == '1'){
 			
 			echo "CEP: " . $cepTriagem[0]['cep'] . " JÁ FOI notificado - Aguardando novos registros.".PHP_EOL;
