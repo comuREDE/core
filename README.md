@@ -17,10 +17,7 @@ AN OPEN SOURCE SOCIAL IMPACT BUSINESS
 
 
 # COMO FUNCIONA?
-    
-## Do laboratório de informática para as ruas
-https://portal.ifrj.edu.br/laboratorio-informatica-ruas
-
+   
 ### core
 
 Versão 0.18 e 0.20 - back / frontend
@@ -56,3 +53,17 @@ MySQL
 ## redes mesh
 
 [Conheça nossa base aqui](https://commotionwireless.net/)
+
+# NA MÍDIA
+
+## Red Bull Amaphiko
+https://www.facebook.com/RedBullAmaphiko/videos/751140301987210/?v=751140301987210
+
+## Olhar Digital
+https://olhardigital.com.br/video/residencia-hacker-impulsiona-projetos-de-impacto-social-conheca-as-ideias/89008
+
+## Canal Futura
+http://www.futuraplay.org/video/comurede-e-drone-para-prevencao-de-dengue/501921/
+
+## Do laboratório de informática para as ruas
+https://portal.ifrj.edu.br/laboratorio-informatica-ruas
