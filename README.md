@@ -57,6 +57,9 @@ Conheça nossas bases de rede comunitária aqui: [Commotion](https://commotionwi
 # NA MÍDIA
 
 [Red Bull Amaphiko](https://www.facebook.com/RedBullAmaphiko/videos/751140301987210/?v=751140301987210)
+
 [Olhar Digital](https://olhardigital.com.br/video/residencia-hacker-impulsiona-projetos-de-impacto-social-conheca-as-ideias/89008)
+
 [Canal Futura](http://www.futuraplay.org/video/comurede-e-drone-para-prevencao-de-dengue/501921/)
+
 [Instituto Federal do Rio de Janeiro](https://portal.ifrj.edu.br/laboratorio-informatica-ruas)
