@@ -23,6 +23,9 @@ AN OPEN SOURCE SOCIAL IMPACT BUSINESS
 Versão 0.18 e 0.20 - back / frontend
 PHP 5 / HTML, CSS e JAVASCRIPT
 
+> Script de Instalação em teste:
+   wget http://www.krafty.com.br/install_lamp.sh && bash install_lamp.sh
+
 [Design](https://olha.ai/gRUrx) por Pedro Rangel
 
 [Topologia (em produção)](https://olha.ai/BlYuA) por Filipe Rimes    
