@@ -33,7 +33,7 @@ PHP 5 / HTML, CSS e JAVASCRIPT
 ## hardware / software
 
 ### servidor
-Raspberry W Zero (para testes-dev ou [VM](https://sourceforge.net/projects/osboxes/files/v/vb/48-R-pb/2019-04-11/R20190411VB-32bit.7z/download)) "Username: pi Password: osboxes.org" / Rasp 3 (em produção) / Raspbian / Apache / MQTT / MariaDB 
+Raspberry W Zero (para testes-dev ou [VM](https://sourceforge.net/projects/osboxes/files/v/vb/48-R-pb/2019-04-11/R20190411VB-32bit.7z/download) "Username: pi Password: osboxes.org") / Rasp 3 (em produção) / Raspbian / Apache / MQTT / MariaDB 
 
 ### sensores autônomos
 C++
