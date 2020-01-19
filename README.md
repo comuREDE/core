@@ -46,7 +46,7 @@ MySQL
 
 [Arquivo de exemplo v0.20](https://www.dropbox.com/s/r2oboa51on5g88w/mysql_dump_081019.sql?dl=0) NOVO (OUT19)
 
-[Arquivo de exemplo v0.18](https://olha.ai/2nTZp) REAL (SET18 a JUL19)
+[Arquivo de exemplo v0.18](https://olha.ai/V2aP2) REAL (SET18 a JUL19)
 
 [Modelo Entidade Relacional v0.10](https://olha.ai/2fUSM) (SET18)
 
