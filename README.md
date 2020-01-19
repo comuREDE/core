@@ -23,7 +23,7 @@ https://portal.ifrj.edu.br/laboratorio-informatica-ruas
 
 ### core
 
-Versão 0.1 - back / frontend
+Versão 0.18 e 0.20 - back / frontend
 PHP 5 / HTML, CSS e JAVASCRIPT
 
 [Design](https://olha.ai/gRUrx) por Pedro Rangel
@@ -33,25 +33,25 @@ PHP 5 / HTML, CSS e JAVASCRIPT
 ## hardware / software
 
 ### servidor
-Raspberry W Zero / Raspbian / Apache / MQTT / MariaDB 
+Raspberry W Zero (testes ou dev) / Rasp 3 (em produção) / Raspbian / Apache / MQTT / MariaDB 
 
 ### sensores autônomos
 C++
 
 [Apresentação](https://olha.ai/imh6d) - Fluxo de Água (AGO18)
               
+[Sketch - Sensor Fluxo v0.20](https://www.dropbox.com/s/a0mwp6wxfzbavyx/Sensor_Auton_v02_AGUAf_LIME-CLOUDDEV_Node_ID24130-89_190120-B.zip?dl=0)
 
-[Sketch](https://olha.ai/bYlY1)
+[Sketch v0.18](https://olha.ai/bYlY1)
 
 ## banco de dados
 MySQL
 
-[Modelo Entidade Relacional](https://olha.ai/2fUSM)
+[Arquivo de exemplo v0.20](https://olha.ai/PlUOC) NOVO
 
-[Arquivo de exemplo](https://olha.ai/PlUOC) NOVO
+[Arquivo de exemplo v0.18](https://olha.ai/2nTZp) REAL (SET18 a JUL19)
 
-[Arquivo de exemplo](https://olha.ai/2nTZp) REAL (SET18 a JUL19)
-
+[Modelo Entidade Relacional v0.18](https://olha.ai/2fUSM)
 
 ## redes mesh
 
