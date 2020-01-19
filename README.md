@@ -24,7 +24,7 @@ Versão 0.18 e 0.20 - back / frontend
 PHP 5 / HTML, CSS e JAVASCRIPT
 
 >> Script de Instalação em teste:<br>
->> wget http://www.krafty.com.br/install_lamp.sh && bash install_lamp.sh
+>> wget demo-dev.comurede.net/install-raspbian.sh && bash install-raspbian.sh
 
 [Design](https://olha.ai/gRUrx) por Pedro Rangel
 
