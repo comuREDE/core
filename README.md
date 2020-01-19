@@ -25,7 +25,7 @@ PHP 5 / HTML, CSS e JAVASCRIPT
 
 [Design](https://olha.ai/gRUrx) por Pedro Rangel
 
-[Topologia(em produção)](https://olha.ai/BlYuA) por Filipe Rimes    
+[Topologia (em produção)](https://olha.ai/BlYuA) por Filipe Rimes    
    
 ## hardware / software
 
