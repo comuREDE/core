@@ -38,16 +38,16 @@ Raspberry W Zero (testes ou dev) / Rasp 3 (em produção) / Raspbian / Apache / 
 ### sensores autônomos
 C++
 
-[Apresentação](https://olha.ai/imh6d) - Fluxo de Água (AGO18)
+[Apresentação](https://olha.ai/imh6d) Sensor (AGO18)
               
-[Sketch - Sensor Fluxo v0.20](https://www.dropbox.com/s/a0mwp6wxfzbavyx/Sensor_Auton_v02_AGUAf_LIME-CLOUDDEV_Node_ID24130-89_190120-B.zip?dl=0)
+[Sketch Sensor Fluxo v0.20](https://www.dropbox.com/s/a0mwp6wxfzbavyx/Sensor_Auton_v02_AGUAf_LIME-CLOUDDEV_Node_ID24130-89_190120-B.zip?dl=0)
 
-[Sketch v0.18](https://olha.ai/bYlY1)
+[Sketch Sensor v0.18](https://olha.ai/bYlY1)
 
 ## banco de dados
 MySQL
 
-[Arquivo de exemplo v0.20](https://olha.ai/PlUOC) NOVO
+[Arquivo de exemplo v0.20](https://www.dropbox.com/s/r2oboa51on5g88w/mysql_dump_081019.sql?dl=0) NOVO (OUT19)
 
 [Arquivo de exemplo v0.18](https://olha.ai/2nTZp) REAL (SET18 a JUL19)
 
