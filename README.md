@@ -30,12 +30,12 @@ PHP 5 / HTML, CSS e JAVASCRIPT
 ## hardware / software
 
 ### servidor
-Raspberry W Zero (testes ou dev) / Rasp 3 (em produção) / Raspbian / Apache / MQTT / MariaDB 
+Raspberry W Zero (para testes ou dev) / Rasp 3 (em produção) / Raspbian / Apache / MQTT / MariaDB 
 
 ### sensores autônomos
 C++
 
-[Apresentação](https://olha.ai/imh6d) Sensor (AGO18)
+[Apresentação Sensor](https://olha.ai/imh6d) (AGO18)
               
 [Sketch Sensor Fluxo v0.20](https://www.dropbox.com/s/a0mwp6wxfzbavyx/Sensor_Auton_v02_AGUAf_LIME-CLOUDDEV_Node_ID24130-89_190120-B.zip?dl=0)
 
@@ -48,11 +48,11 @@ MySQL
 
 [Arquivo de exemplo v0.18](https://olha.ai/2nTZp) REAL (SET18 a JUL19)
 
-[Modelo Entidade Relacional v0.18](https://olha.ai/2fUSM)
+[Modelo Entidade Relacional v0.10](https://olha.ai/2fUSM) (SET18)
 
 ## redes mesh
 
-[Conheça nossa base aqui](https://commotionwireless.net/)
+Conheça nossas bases de rede comunitária aqui: [Commotion](https://commotionwireless.net/) / [LibreMesh](https://libremesh.org/) 
 
 # NA MÍDIA
 
