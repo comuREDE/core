@@ -40,9 +40,9 @@ C++
 
 [Apresentação Sensor](https://olha.ai/imh6d) (AGO18)
               
-[Sketch Sensor Fluxo v0.20](https://www.dropbox.com/s/a0mwp6wxfzbavyx/Sensor_Auton_v02_AGUAf_LIME-CLOUDDEV_Node_ID24130-89_190120-B.zip?dl=0)
+[Sketch Sensor Fluxo v0.20](https://www.dropbox.com/s/a0mwp6wxfzbavyx/Sensor_Auton_v02_AGUAf_LIME-CLOUDDEV_Node_ID24130-89_190120-B.zip?dl=0) (SET19)
 
-[Sketch Sensor v0.18](https://olha.ai/bYlY1)
+[Sketch Sensor v0.18](https://olha.ai/bYlY1) (AGO18)
 
 ### banco de dados
 MySQL
