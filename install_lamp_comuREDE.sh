@@ -29,8 +29,8 @@ sudo apt -y install lsb-release apt-transport-https ca-certificates;
 sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg;
 echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php7.3.list;
 sudo apt update;
-sudo apt-get install php7.1 php7.1-cli php7.1-curl php7.1-json php7.1-opcache php7.1-common php7.1-readline -y;
-#sudo apt-get install php7.1 php7.1-cli php7.1-curl php7.1-json php7.1-opcache php7.1-common php7.1-readline php7.1-mysql -y;
+#sudo apt-get install php7.1 php7.1-cli php7.1-curl php7.1-json php7.1-opcache php7.1-common php7.1-readline -y;
+sudo apt-get install php7.1 php7.1-cli php7.1-curl php7.1-json php7.1-opcache php7.1-common php7.1-readline php7.1-mysql -y;
 
 #SQL COMMANDS
 sudo mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION";
