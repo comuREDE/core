@@ -53,6 +53,11 @@ MySQL
 
 [Modelo Entidade Relacional v0.10](https://olha.ai/2fUSM) (SET18)
 
+### ciência de dados
+CSV
+
+[Arquivo de exemplo v0.20](https://www.dropbox.com/s/w59s1qxj58l5kmk/data_IoT_comuREDE_1119.csv?dl=0) NOVO (NOV19)
+
 ## redes mesh
 
 Conheça nossas bases de rede comunitária aqui: [Commotion](https://commotionwireless.net/) / [LibreMesh](https://libremesh.org/) 
