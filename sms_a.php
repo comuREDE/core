@@ -11,7 +11,7 @@ while(1){
 	//echo "\n----------- agua -----------<br>";
 	principal_A();
 	//echo "final de um ciclo<br>";
-	sleep(10);
+	sleep(5);
 	goto inicio;	
 }
 
@@ -24,7 +24,8 @@ function principal_A(){
 	filtroSecundario('A');
 	#sleep(60);
 	//echo "\n<h1>passou pelo secundario - ".date('d/m/Y H:i:s')."</h1>";
-	alertaSMS('A');
+    //validaEnvioSMS();
+    alertaSMS('A');
 	//echo "\n<h1>recebeu os sms - ".date('d/m/Y H:i:s')."</h1>";
 	#sleep(30);
 	//echo "\n<h1>fim Agua - ".date('d/m/Y H:i:s')."</h1>";
@@ -51,11 +52,9 @@ function filtroPrimarioAgua(){
 	if($count > 2){
 		for($i=0; $i<$count-2; $i++){
 			$id_davez = $res[$i]['id'];
-
 			$atual_estado=$res[$i]['estado'];
 			$proximo_estado=$res[$i+1]['estado'];
 			$proximo_prox_estado=$res[$i+2]['estado'];
-
 			if($atual_estado==='D'){
 				$loop=false;
 			}
@@ -93,6 +92,7 @@ function filtroPrimarioAgua(){
 
 		if(is_array($regs)){
 			saveTriagem($regs,"A");
+			//var_dump($regs);
 		} else {
 			echo "Sem registros Triagem Agua";
 		}
