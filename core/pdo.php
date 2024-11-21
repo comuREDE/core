@@ -125,12 +125,15 @@ class BD {
 
         }
 
-	} 
+	}
 
-	/**
+
+    /********************************************************************************************/
+
+    /**
 	 * Função para atualizar o campo 'enviado' na tabela relatorios para auxiliar a determinar quando o próximo SMS deve ser enviado.
 	 */
-	
+
 	function updateSMSStatus()
 	{
 		$pdo = self::getCN();
@@ -139,6 +142,32 @@ class BD {
 		$statement->execute();
 		//echo 'SMS Atualizado para Enviado'.PHP_EOL;
 	}
+
+    /**
+     * Função para atualizar o campo 'enviado' na tabela relatorios para auxiliar a determinar quando o próximo SMS deve ser enviado.
+     */
+
+    function updateAnuncioDataEnvio($id_anuncio)
+    {
+        $pdo = self::getCN();
+        $sql = "UPDATE anuncios SET data_envio = NOW() WHERE id = {$id_anuncio}";
+        $statement = $pdo->prepare($sql);
+        $statement->execute();
+        //echo 'Data Envio Anuncio Atualizada'.PHP_EOL;
+    }
+
+    /**
+     * Função para atualizar o campo 'enviado' na tabela relatorios para auxiliar a determinar quando o próximo SMS deve ser enviado.
+     */
+
+    function updateAnuncioStatus($id_anuncio)
+    {
+        $pdo = self::getCN();
+        $sql = "UPDATE anuncios SET enviado = 1 WHERE id = {$id_anuncio}";
+        $statement = $pdo->prepare($sql);
+        $statement->execute();
+        //echo 'Anuncio status alterado para Enviado'.PHP_EOL;
+    }
 
 	/**
 	 * Função para atualizar o campo 'dado' do registro 'sms_on' na tabela sistema para ligar ou desligar o envio de SMS
@@ -153,9 +182,141 @@ class BD {
 		//echo 'SMS Atualizado para Enviado'.PHP_EOL;
 	}
 
+    /**
+     * Função para atualizar o campo 'dado' do registro 'demo_on' na tabela sistema para ligar ou desligar o modo demo do sistema
+     */
 
+    function setDemoOn($parametro)
+    {
+        $pdo = self::getCN();
+        $sql = "UPDATE sistema SET dado = '$parametro' WHERE info = 'demo_on';";
+        $statement = $pdo->prepare($sql);
+        $statement->execute();
+	
+	$pdo = self::getCN();
+        $sql = "UPDATE relatorios SET enviado = '0' WHERE id > 0;";
+        $statement = $pdo->prepare($sql);
+        $statement->execute();
+        //echo 'SMS Atualizado para Enviado'.PHP_EOL;
+    }
+    
+    
+    /**
+     * Função para resetar os anuncios
+     */
+
+    function resetAnuncios()
+    {
+        $pdo = self::getCN();
+        $sql = "UPDATE anuncios SET enviado = '0' WHERE id > 0;";
+        $statement = $pdo->prepare($sql);
+        $statement->execute();
+    }
+    
+    /**
+     * Função para resetar os envios em relatorios
+     */
+
+    function resetEnviosRelatorios()
+    {
+        $pdo = self::getCN();
+        $sql = "UPDATE relatorios SET enviado = '0' WHERE id > 0;";
+        $statement = $pdo->prepare($sql);
+        $statement->execute();
+    }
 
 	/**
+	 * Função para inserir moradores na tabela de cadastros
+	 */
+	function insertCadastro($celular, $email, $nome, $cep)
+	{
+		$pdo = self::getCN();
+		$sql = "INSERT INTO cadastros (celular, email, nome, cep) VALUES (?,?,?,?)";
+		$statement = $pdo->prepare($sql);
+		$statement->execute([$celular, $email, $nome, $cep]);
+	}
+
+    /**
+     * Função para editar moradores na tabela de cadastros
+     */
+	function editCadastro($id, $celular, $email, $nome, $cep)
+	{
+		$pdo = self::getCN();
+		$sql = "UPDATE cadastros c SET celular = '".$celular."', email = '".$email."', nome = '".$nome."', cep = '".$cep."' WHERE c.id =".$id;
+		//echo $sql;
+		//die();
+		$statement = $pdo->prepare($sql);
+		$statement->execute();
+	}
+
+    /**
+     * Função para deletar moradores da tabela de cadastros
+     * @param $id
+     */
+    function deleteCadastro($id)
+    {
+        $pdo = self::getCN();
+        $sql = "DELETE FROM cadastros WHERE id = {$id}";
+        $statement = $pdo->prepare($sql);
+        $statement->execute();
+    }
+
+
+
+    /**
+     * Função para inserir na tabela de cadastros
+     */
+    function insertAnunciante($celular, $email, $nome, $cep, $saldo)
+    {
+        $pdo = self::getCN();
+        $sql = "INSERT INTO anunciantes (celular, email, nome, cep, saldo) VALUES (?,?,?,?,?)";
+        $statement = $pdo->prepare($sql);
+        $statement->execute([$celular, $email, $nome, $cep, $saldo]);
+    }
+
+    /**
+     * Função para editar cadastros na tabela de anunciantes
+     */
+    function editAnunciante($id, $celular, $email, $nome, $cep, $saldo)
+    {
+        $pdo = self::getCN();
+        $sql = "UPDATE anunciantes c SET celular = '".$celular."', email = '".$email."', nome = '".$nome."', cep = '".$cep."', saldo = '".$saldo."' WHERE c.id =".$id;
+        //echo $sql;
+        //die();
+        $statement = $pdo->prepare($sql);
+        $statement->execute();
+    }
+
+    /**
+     * Função para inserir na tabela de anuncios
+     *
+     */
+    function insertAnuncio($anuncianteId, $texto, $cep, $dataCadastro)
+    {
+        $pdo = self::getCN();
+        $sql = "INSERT INTO anuncios (id_anunciante, texto, cep, data_cadastro) VALUES (?,?,?,?)";
+        $statement = $pdo->prepare($sql);
+        $statement->execute([$anuncianteId, $texto, $cep, $dataCadastro]);
+    }
+
+
+    /**
+     * Função para editar anuncios na tabela de anuncios
+     */
+    function editAnuncio($id, $texto, $cep)
+    {
+        $pdo = self::getCN();
+        $sql = "UPDATE anuncios a SET texto = '".$texto."', cep = '".$cep."' WHERE a.id =".$id;
+        //echo $sql;
+        //die();
+        $statement = $pdo->prepare($sql);
+        $statement->execute();
+    }
+
+
+    /********************************************************************************************/
+
+    /**
 	*Funcao aux que serve para informar o tipo de dado no prepared st
 	*Somente mysql. No postgre nao funciona
 	*/
