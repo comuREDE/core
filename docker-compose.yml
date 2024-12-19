@@ -1,0 +1,48 @@
+services:
+  admin:
+    build: ./docker/admin
+    working_dir: /app
+    volumes:
+      - ./:/app
+      # - ./docker/admin/php.ini:/usr/local/etc/php/conf.d/comurede.ini
+
+  web:
+    image: nginx:1-alpine
+    volumes:
+      - ./:/usr/share/nginx/html:ro
+      - ./docker/web/default.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+     - 80:80
+
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=comurede
+    volumes:
+      - comurede_db_data:/var/lib/mysql
+      - ../:/app
+
+  mqtt:
+    image: eclipse-mosquitto:2.0.20
+    volumes:
+      - comurede_mqtt_data:/mosquitto/data
+      - ./docker/mqtt:/mosquitto/config
+    ports:
+      - 1883:1883
+    user: "1000"
+
+  subscribe:
+    build: ./docker/php-cli
+    working_dir: /app
+    entrypoint: php /app/subscribe.php
+    volumes:
+      - ./:/app
+    depends_on:
+      - mqtt
+      - db
+    restart: on-failure
+
+volumes:
+  comurede_db_data:
+  comurede_mqtt_data:
