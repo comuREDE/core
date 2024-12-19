@@ -21,7 +21,7 @@ services:
       - MYSQL_DATABASE=comurede
     volumes:
       - comurede_db_data:/var/lib/mysql
-      - ../:/app
+      - ./:/app
 
   mqtt:
     image: eclipse-mosquitto:2.0.20
