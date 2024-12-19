@@ -15,11 +15,10 @@ services:
      - 80:80
 
   db:
-    image: mysql:5.7
-    platform: linux/x86_64
+    image: mariadb:10.2
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=comurede
+      - MARIADB_ROOT_PASSWORD=root
+      - MARIADB_DATABASE=comurede
     volumes:
       - comurede_db_data:/var/lib/mysql
       - ./:/app
