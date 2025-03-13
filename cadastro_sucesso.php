@@ -16,8 +16,10 @@
         <img class="header__logo" src="images/logo-comuREDE_02.png" alt="Logo comuREDE">
     </header>
     <main class="container">
-        <h2 class="footer__title"><i class="fa fa-email"></i>E-mail enviado com sucesso!</h2>
-        <h2 class="footer__title">Você será redirecionado em instantes.</h2>
+        <h2 class="footer__title"><i class="fa fa-email"></i>Cadastro realizado com sucesso!</h2>
+        <h2 class="footer__title">
+            Você será redirecionado em instantes.
+        </h2>
 <!--
         <a href="index.php" style="text-decoration: none" class="formRegister__itemButton btn__default">Voltar</a>
 -->
@@ -32,7 +34,7 @@
 
     <script>
         setTimeout(function() {
-            window.location.href = 'services.php';
+            window.location.href = 'index.php';
         }, 5000);
     </script>
 </body>

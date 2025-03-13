@@ -10,7 +10,7 @@ $cep = $_POST['cep'];
 if ($_POST['cadastrar'] == '1') {
     $novoUser = (new BD())->insertCadastro($celular, $email, $nome, $cep);
     unset($_POST);
-    header("Location: " . $_SERVER['PHP_SELF']);
+    header("Location: cadastro_sucesso.php");
     exit;
 }
 
