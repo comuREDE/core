@@ -43,6 +43,11 @@ services:
       - db
     restart: on-failure
 
+  smtp:
+    image: maildev/maildev
+    ports:
+      - 1080:1080
+
 volumes:
   comurede_db_data:
   comurede_mqtt_data:
