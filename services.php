@@ -39,16 +39,15 @@
 		google.charts.setOnLoadCallback(drawChart);
 
 		function drawChart() {
+			if (!infoDataLuz.length) {
+				return;
+			}
+
 			var data = google.visualization.arrayToDataTable([
 				['Luz', 'Desligada'],
-				[validation(infoDataLuz[0].dia), infoDataLuz[0].caiu],
-				[validation(infoDataLuz[1].dia), infoDataLuz[1].caiu],
-				[validation(infoDataLuz[2].dia), infoDataLuz[2].caiu],
-				[validation(infoDataLuz[3].dia), infoDataLuz[3].caiu],
-				[validation(infoDataLuz[4].dia), infoDataLuz[4].caiu],
-				[validation(infoDataLuz[5].dia), infoDataLuz[5].caiu],
-				[validation(infoDataLuz[6].dia), infoDataLuz[6].caiu],
-				[validation(infoDataLuz[7].dia), infoDataLuz[7].caiu]
+				...infoDataLuz.slice(0, 8).map(i => [
+					validation(i.dia), i.caiu
+				])
 			]);
 
 			var options = {
@@ -58,6 +57,9 @@
 				},
 				hAxis: {
 					title: 'Dias',
+					textStyle: {
+						color: '#9e3eba'
+					},
 					titleTextStyle: {
 						color: '#9e3eba'
 					},
@@ -71,26 +73,34 @@
 					baselineColor: '#00A79E',
 					gridlines: {
 						color: 'none',
-					}
+					},
+					textStyle: {
+						color: '#9e3eba'
+					},
+					minValue: 0,
+					maxValue: 1
 				},
 				colors: ['#FF8760', '#00A79E'],
 				backgroundColor: '#4e1d69',
 				chartArea: {
 					backgroundColor: '#4e1d69',
-					left: 20,
-					width: '90%',
-					margin: 'auto'
+					width: '100%',
 				},
 				series: {
 					0: {
 						lineWidth: 4,
 					}
+				},
+				legend: {
+					position: 'none'
 				}
 			};
 
-			var chart = new google.visualization.AreaChart(document.getElementById('chart_div--ligth'));
+			var chart = new google.visualization.ColumnChart(document.getElementById('chart_div--light'));
 			chart.draw(data, options);
 		}
+
+		window.addEventListener('resize', drawChart)
 	</script>
 
 
@@ -125,16 +135,15 @@
 		
 
 		function drawChart() {
+			if (!infoDataAgua.length) {
+				return;
+			}
+
 			var data = google.visualization.arrayToDataTable([
 				['Água', 'Caindo'],
-				[validation(infoDataAgua[0].dia), infoDataAgua[0].caiu],
-				[validation(infoDataAgua[1].dia), infoDataAgua[1].caiu],
-				[validation(infoDataAgua[2].dia), infoDataAgua[2].caiu],
-				[validation(infoDataAgua[3].dia), infoDataAgua[3].caiu],
-				[validation(infoDataAgua[4].dia), infoDataAgua[4].caiu],
-				[validation(infoDataAgua[5].dia), infoDataAgua[5].caiu],
-				[validation(infoDataAgua[6].dia), infoDataAgua[6].caiu],
-				[validation(infoDataAgua[7].dia), infoDataAgua[7].caiu]
+				...infoDataAgua.slice(0, 8).map(i => [
+					validation(i.dia), i.caiu
+				])
 			]);
 
 			var options = {
@@ -144,6 +153,9 @@
 				},
 				hAxis: {
 					title: 'Dias',
+					textStyle: {
+						color: '#9e3eba'
+					},
 					titleTextStyle: {
 						color: '#9e3eba'
 					},
@@ -154,30 +166,37 @@
 					}
 				},
 				vAxis: {
-					// minValue: 1,
 					baselineColor: '#00A79E',
+					textStyle: {
+						color: '#9e3eba'
+					},
 					gridlines: {
 						color: 'none',
-					}
+					},
+					minValue: 0,
+					maxValue: 1
 				},
 				colors: ['#FF8760', '#00A79E'],
 				backgroundColor: '#4e1d69',
 				chartArea: {
 					backgroundColor: '#4e1d69',
-					left: 20,
-					width: '90%',
-					margin: 'auto'
+					width: '100%',
 				},
 				series: {
 					0: {
 						lineWidth: 4,
 					}
+				},
+				legend: {
+					position: 'none'
 				}
 			};
 
-			var chart = new google.visualization.AreaChart(document.getElementById('chart_div--water'));
+			var chart = new google.visualization.ColumnChart(document.getElementById('chart_div--water'));
 			chart.draw(data, options);
 		}
+
+		window.addEventListener('resize', drawChart)
 	</script>
 </head>
 
@@ -185,17 +204,23 @@
 	<header class="header">
 		<h1 class="header__title header__title--services">Serviços</h1>
 	</header>
-	<main class="container container--services">
-		<section class="container__section">
-			<h2 class="container__title container__title--service">Tá caindo água?</h2>
-			<img class="container__imgIndicator" id="torneiraAgua" alt="Torneira">
-			<div id="chart_div--water"></div>
-		</section>
-		<section class="container__section">
-			<img class="container__imgIndicator" id='lampadaLuz' alt="Lampada">
-			<h2 class="container__title container__title--service container__title--right">Tá com luz?</h2>
-			<div id="chart_div--ligth"></div>
-		</section>
+	<main>
+		<div class="container container--services">
+			<section class="container__section">
+				<div class="service-head">
+					<h2 class="container__title container__title--service">Tá caindo água?</h2>
+					<img class="container__imgIndicator" id="torneiraAgua" alt="Torneira">
+				</div>
+				<div id="chart_div--water"></div>
+			</section>
+			<section class="container__section">
+				<div class="service-head">
+					<img class="container__imgIndicator" id='lampadaLuz' alt="Lampada">
+					<h2 class="container__title container__title--service container__title--right">Tá com luz?</h2>
+				</div>
+				<div id="chart_div--light"></div>
+			</section>
+		</div>
 		<form class="container__formRegister container__formSubscribe" method="POST" action="md.php">
 			<input type="hidden" name="cep" value="24130400">
 			<h2 class="formRegister__title">
@@ -236,13 +261,9 @@
 
 		if (aguaAgora === null) {
 			torneira.src = './images/loader.svg';
-			torneira.style.width = '15%';
-			torneira.style.margin = '10% auto';
 		}
 		if (luzAgora === null) {
 			lampada.src = './images/loader.svg';
-			lampada.style.width = '15%';;
-			lampada.style.margin = '10% auto';
 		}
 
 
@@ -255,10 +276,8 @@
 
 					if (aguaAgora == "L") {
 						torneira.src = './images/Icone-torneira.svg';
-						torneira.style.width = '50%';
 					} else if (aguaAgora == "D") {
 						torneira.src = './images/Icone-torneira-2.svg';
-						torneira.style.width = '50%';
 					} else {
 						console.log('Deu erro!');
 					}
@@ -278,10 +297,8 @@
 
 					if (luzAgora === "L") {
 						lampada.src = './images/Icone-Lampada.svg';
-						lampada.style.width = '50%';
 					} else if (luzAgora === "D") {
 						lampada.src = './images/Icone-Lampada-2.svg'
-						lampada.style.width = '35%';
 					} else {
 						lampada.src = './images/loader.svg'
 					}
