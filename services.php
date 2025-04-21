@@ -96,7 +96,7 @@
 				}
 			};
 
-			var chart = new google.visualization.ColumnChart(document.getElementById('chart_div--light'));
+			var chart = new google.visualization.AreaChart(document.getElementById('chart_div--light'));
 			chart.draw(data, options);
 		}
 
@@ -192,7 +192,7 @@
 				}
 			};
 
-			var chart = new google.visualization.ColumnChart(document.getElementById('chart_div--water'));
+			var chart = new google.visualization.AreaChart(document.getElementById('chart_div--water'));
 			chart.draw(data, options);
 		}
 
